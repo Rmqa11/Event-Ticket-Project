@@ -12,6 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Event {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "event_id")
     private int eventId;
     private String title;
     private Date date;
@@ -21,5 +23,9 @@ public class Event {
     @Enumerated(EnumType.STRING)
     private EventType eventType;
 
+
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
 
 }
