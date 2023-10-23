@@ -5,10 +5,8 @@ import com.ticket.ticket.service.Implemntation.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -16,7 +14,7 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private AdminServiceImpl adminServiceImpl;
-    @GetMapping("/users")
+    @GetMapping("/admin")
     public List<Admin> getAdmin(){
         return adminServiceImpl.getAdmin();
     }
@@ -31,6 +29,20 @@ public class AdminController {
         catch(Exception e){
             String errorMessage = "Admin Not Added successfully" + e.getMessage();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
+        }
+    }
+
+    @PutMapping("/update/{adminId}")
+    public String updateAdmin(@PathVariable int adminId, @RequestBody Admin admin){
+        return adminServiceImpl.updateAdmin(adminId, admin);
+    }
+    @DeleteMapping("/delete/{adminId}")
+    public String deleteAdmin(@PathVariable int adminId) {
+        try {
+            adminServiceImpl.deleteAdmin(adminId);
+            return "Admin deleted successfully";
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -20,8 +21,31 @@ public class AdminServiceImpl implements AdminService {
         adminRepository.save(admin);
     }
 
+    @Override
+    public String updateAdmin(int adminId, Admin admin) {
+        Optional<Admin> adminFound = adminRepository.findById(adminId);
+        if(adminFound.isPresent()){
+            admin.setUsername(admin.getUsername());
+            adminRepository.save(admin);
+            return "Admin Details Updated";
+        }
+        else {
+            return "Admin with course code " + adminId + " not found";
 
-//    public List<Admin> getAdmin() {
-//        return adminRepository.findAll();
-//    }
+        }
+    }
+
+    @Override
+    public String deleteAdmin(int adminId) {
+        if(adminRepository.existsById(adminId)){
+            adminRepository.deleteById(adminId);
+            return "Admin deleted Successfully";
+        }
+        else{
+            return "Admin not found";
+        }
+
+    }
+
+
 }
