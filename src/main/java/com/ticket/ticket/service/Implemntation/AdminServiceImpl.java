@@ -13,10 +13,11 @@ import java.util.Optional;
 public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminRepository adminRepository;
-
+    @Override
     public List<Admin> getAdmin() {
         return adminRepository.findAll();
     }
+    @Override
     public void createAdmin(Admin admin){
         adminRepository.save(admin);
     }

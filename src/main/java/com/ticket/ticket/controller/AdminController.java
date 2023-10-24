@@ -52,13 +52,8 @@ public class AdminController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
-    @PostMapping("/events")
-    public Event addEvent(@RequestBody Event event, @RequestParam("userId") int userId) {
-        Admin admin = adminRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("Admin not found with ID: " + userId));
 
-        event.setAdmin(admin);
-        return eventRepository.save(event);
-    }
+
+
 
 }

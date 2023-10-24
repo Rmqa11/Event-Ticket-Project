@@ -1,5 +1,6 @@
 package com.ticket.ticket.controller;
 
+import com.ticket.ticket.entity.Admin;
 import com.ticket.ticket.entity.Event;
 import com.ticket.ticket.repository.EventRepository;
 import com.ticket.ticket.service.Implemntation.EventServiceImpl;
@@ -25,7 +26,9 @@ public class EventController {
 
     }
 
-
-
+    @GetMapping("/event/{eventType}")//Check
+    public List<Event> searchByEventType(@RequestParam("eventType") String eventType) {
+        return eventServiceImpl.searchByEventType(eventType);
+    }
 
 }
