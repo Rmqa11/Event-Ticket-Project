@@ -1,6 +1,9 @@
 package com.ticket.ticket.controller;
 
 import com.ticket.ticket.entity.Admin;
+import com.ticket.ticket.entity.Event;
+import com.ticket.ticket.repository.AdminRepository;
+import com.ticket.ticket.repository.EventRepository;
 import com.ticket.ticket.service.Implemntation.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +17,10 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private AdminServiceImpl adminServiceImpl;
+    @Autowired
+    private EventRepository eventRepository;
+    @Autowired
+    private AdminRepository adminRepository;
     @GetMapping("/admin")
     public List<Admin> getAdmin(){
         return adminServiceImpl.getAdmin();
@@ -44,6 +51,14 @@ public class AdminController {
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
+    }
+    @PostMapping("/events")
+    public Event addEvent(@RequestBody Event event, @RequestParam("userId") int userId) {
+        Admin admin = adminRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("Admin not found with ID: " + userId));
+
+        event.setAdmin(admin);
+        return eventRepository.save(event);
     }
 
 }
