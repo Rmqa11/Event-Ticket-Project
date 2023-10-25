@@ -52,8 +52,4 @@ public class AdminController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
-
-
-
-
 }

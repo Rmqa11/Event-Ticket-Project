@@ -31,7 +31,7 @@ class AdminControllerTest {
     public void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();    }
     @Test
-    public void testGetAdmin() throws Exception { //done
+    public void testGetAdmin() throws Exception {
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/admin"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
@@ -53,7 +53,7 @@ class AdminControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/create")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(adminJson))
-                .andExpect(MockMvcResultMatchers.status().isOk()) // Expect HTTP 200
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Admin Added Successfully"));
     }
     @Test
@@ -61,9 +61,9 @@ class AdminControllerTest {
         int adminId = 1;
         when(adminServiceImpl.deleteAdmin(adminId)).thenReturn(String.valueOf(true)); // returns a boolean
         mockMvc.perform(MockMvcRequestBuilders.delete("/delete/{adminId}", adminId))
-                .andExpect(MockMvcResultMatchers.status().isOk()) // Expect HTTP 200
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Admin deleted successfully"));
     }
 
 
-    }
+}

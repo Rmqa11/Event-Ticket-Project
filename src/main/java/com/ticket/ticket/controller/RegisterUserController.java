@@ -13,7 +13,7 @@ public class RegisterUserController {
     @Autowired
     private RegisterUserServiceImpl registerUserServiceImpl;
 
-    @PostMapping("/user")
+    @PostMapping("/create/user")
     public String createUser(@RequestBody RegisterUser registerUser) {
         try {
             registerUserServiceImpl.createUser(registerUser);
