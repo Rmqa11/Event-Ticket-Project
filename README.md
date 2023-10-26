@@ -4,22 +4,33 @@ This is the backend component of the Event Ticket application, responsible for m
 # API Endpoints
 
 1- AdminController
+
 /admin: get admin.
+
 /create: create admin.
+
 /update/{adminId}: update admin by id.
+
 /delete/{adminId}: delete admin by id.
 
 2- EventController
+
 /allEvents: get all events.
+
 /event/{eventId}: update event by id.
 
 3- RegisterUserController
+
 /create/user: create user.
+
 /user/{userId}: get user by id.
 
 4- TicketController
+
 /ticket: get all ticket.
+
 /create/ticket: create ticket.
+
 /ticket/delete/{ticketId}: delete ticket by id.
 
 
