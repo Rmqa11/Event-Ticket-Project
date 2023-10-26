@@ -35,7 +35,7 @@ public class TicketController {
     }
    }
 
-    @DeleteMapping("ticket/delete/{ticketId}")
+    @DeleteMapping("/ticket/delete/{ticketId}")
     public String deleteTicket(@PathVariable int ticketId) {
         try {
             ticketRepository.deleteById(ticketId);
@@ -44,4 +44,6 @@ public class TicketController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Ticket not found with ID: " + ticketId);
         }
     }
+
+
 }

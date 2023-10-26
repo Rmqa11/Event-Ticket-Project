@@ -20,15 +20,11 @@ public class EventController {
         return eventRepository.findAll();
     }
 
-    @PutMapping("event/{eventId}")
+    @PutMapping("/event/{eventId}")
     public String updateEvent(@PathVariable int eventId, @RequestBody Event updatedEvent) {
       return eventServiceImpl.updateEvent(eventId,updatedEvent);
 
     }
 
-    @GetMapping("/event/{eventType}")//Check
-    public List<Event> searchByEventType(@RequestParam("eventType") String eventType) {
-        return eventServiceImpl.searchByEventType(eventType);
-    }
 
 }
