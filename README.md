@@ -23,6 +23,10 @@ API Endpoints
 /ticket/delete/{ticketId}: delete ticket by id.
 
 
+![image](https://github.com/Rmqa11/Event-Ticket-Project/assets/129896223/15bd9b68-c97b-4c83-b836-c857065b5061)
+
+
+
 Testing
 
 The application includes Integration tests ( MocMvc ) to ensure its functionality.
