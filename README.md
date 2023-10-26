@@ -1,7 +1,7 @@
 # Event-Ticket-Project
 This is the backend component of the Event Ticket application, responsible for managing event tickets and users. It provides a RESTful API for interacting with the system.
 
-API Endpoints
+# API Endpoints
 
 1- AdminController
 /admin: get admin.
@@ -26,12 +26,12 @@ API Endpoints
 
 
 
-Testing
+# Testing
 
 The application includes Integration tests ( MocMvc ) to ensure its functionality.
 
 
-
+# Class diagram
 ![image](https://github.com/Rmqa11/Event-Ticket-Project/assets/129896223/526c8271-2c03-4773-8a05-ba96688e3536)
 
 
