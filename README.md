@@ -34,6 +34,8 @@ The application includes Integration tests ( MocMvc ) to ensure its functionalit
 # Class diagram
 ![image](https://github.com/Rmqa11/Event-Ticket-Project/assets/129896223/526c8271-2c03-4773-8a05-ba96688e3536)
 
+# My Trello
+https://trello.com/invite/b/xvHeazDq/ATTI23c7186796c2aece286f55edb64cadcb37BB9BC2/mid-project
 
 
 
