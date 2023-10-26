@@ -32,7 +32,7 @@ The application includes Integration tests ( MocMvc ) to ensure its functionalit
 
 
 
-![image](https://github.com/Rmqa11/Event-Ticket-Project/assets/129896223/15bd9b68-c97b-4c83-b836-c857065b5061)
+![image](https://github.com/Rmqa11/Event-Ticket-Project/assets/129896223/526c8271-2c03-4773-8a05-ba96688e3536)
 
 
 
