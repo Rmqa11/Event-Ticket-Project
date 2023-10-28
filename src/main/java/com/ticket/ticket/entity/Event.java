@@ -11,6 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Event {
+    // This class represents an Event entity, typically used to model events in an application.
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "event_id")
@@ -21,11 +23,11 @@ public class Event {
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private EventType eventType;
+    private EventType eventType; // Type of the event
 
 
     @ManyToOne
     @JoinColumn(name = "admin_id")
-    private Admin admin;
+    private Admin admin; // Represents the admin associated with the event
 
 }

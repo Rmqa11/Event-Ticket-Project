@@ -13,6 +13,7 @@ public class RegisterUserController {
     @Autowired
     private RegisterUserServiceImpl registerUserServiceImpl;
 
+    // Handle HTTP POST requests to create a new user
     @PostMapping("/create/user")
     public String createUser(@RequestBody RegisterUser registerUser) {
         try {
@@ -22,6 +23,8 @@ public class RegisterUserController {
             return "Failed to register user: " + e.getMessage();
         }
     }
+
+    // Handle HTTP GET requests to retrieve a user by their ID
     @GetMapping("/user/{userId}")
     public RegisterUser getUser(@PathVariable int userId) {
         try {

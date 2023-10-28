@@ -42,23 +42,13 @@ class EventControllerTest {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
     @Test
-    public void testUpdateEvent() throws Exception {
-        int eventId = 2;
-        Event updatedEvent = new Event();
-        when(eventServiceImpl.updateEvent(eventId, updatedEvent)).thenReturn("Event Details Updated");
-        String updatedEventJson = "{\n" +
-                "        \"eventId\": 2,\n" +
-                "        \"title\": \"Mohammed\",\n" +
-                "        \"date\": \"2023-11-23\",\n" +
-                "        \"description\": \"Music\",\n" +
-                "        \"location\": \"Abha\",\n" +
-                "        \"eventType\": \"Concerts\"\n" +
-                "  \n" +
-                "    }";
-        mockMvc.perform(MockMvcRequestBuilders.put("/event/{eventId}", eventId)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(updatedEventJson))
-                .andExpect(MockMvcResultMatchers.status().isOk()) // Expect HTTP 200
-                .andExpect(MockMvcResultMatchers.content().string("Event Details Updated"));
+    public void testGetAllEvents() throws Exception {
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/allEvents"))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
+                .andReturn();
+        assertTrue(mvcResult.getResponse().getContentAsString().contains("Gaming"));
+
     }
+
 }

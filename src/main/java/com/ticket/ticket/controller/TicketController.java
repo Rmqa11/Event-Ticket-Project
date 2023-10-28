@@ -17,11 +17,14 @@ public class TicketController {
     private TicketRepository ticketRepository;
     @Autowired
     private TicketServiceImpl ticketServiceImpl;
+
+    // Handle HTTP GET requests to retrieve a list of all tickets
     @GetMapping("/ticket")
     public List<Ticket> getAllTickets() {
         return ticketRepository.findAll();
     }
 
+    // Handle HTTP POST requests to create a new ticket
     @PostMapping("/create/ticket")
     public ResponseEntity<String> createTicket(@RequestBody Ticket ticket) {
     try {
@@ -35,6 +38,7 @@ public class TicketController {
     }
    }
 
+    // Handle HTTP DELETE requests to delete a ticket by its ID
     @DeleteMapping("/ticket/delete/{ticketId}")
     public String deleteTicket(@PathVariable int ticketId) {
         try {

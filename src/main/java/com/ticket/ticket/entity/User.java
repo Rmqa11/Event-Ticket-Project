@@ -13,6 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
+    // This class represents a User entity, which is a base class for various user types.
+
     @Id
     private int userId;
     private String username;

@@ -21,11 +21,14 @@ public class AdminController {
     private EventRepository eventRepository;
     @Autowired
     private AdminRepository adminRepository;
+
+    // Handle HTTP GET requests to retrieve a list of admins
     @GetMapping("/admin")
     public List<Admin> getAdmin(){
         return adminServiceImpl.getAdmin();
     }
 
+    // Handle HTTP POST requests to create a new admin
     @PostMapping("/create")
     public ResponseEntity<String> createAdmin(@RequestBody Admin admin){
         try{
@@ -38,11 +41,12 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
         }
     }
-
+    // Handle HTTP PUT requests to update an admin by ID
     @PutMapping("/update/{adminId}")
     public String updateAdmin(@PathVariable int adminId, @RequestBody Admin admin){
         return adminServiceImpl.updateAdmin(adminId, admin);
     }
+    // Handle HTTP DELETE requests to delete an admin by ID
     @DeleteMapping("/delete/{adminId}")
     public String deleteAdmin(@PathVariable int adminId) {
         try {

@@ -1,7 +1,6 @@
 package com.ticket.ticket.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ticket.ticket.entity.Admin;
-import com.ticket.ticket.repository.AdminRepository;
 import com.ticket.ticket.service.Implemntation.AdminServiceImpl;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +58,7 @@ class AdminControllerTest {
     @Test
     public void testDeleteAdminSuccess() throws Exception {
         int adminId = 1;
-        when(adminServiceImpl.deleteAdmin(adminId)).thenReturn(String.valueOf(true)); // returns a boolean
+        when(adminServiceImpl.deleteAdmin(adminId)).thenReturn(String.valueOf(true));
         mockMvc.perform(MockMvcRequestBuilders.delete("/delete/{adminId}", adminId))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Admin deleted successfully"));
